@@ -8,7 +8,18 @@
 .idea/**/usage.statistics.xml
 .idea/**/dictionaries
 .idea/**/shelf
+frontend/node_modules
+/build
 
+# misc
+*/.DS_Store
+*/.env.local
+*/.env.development.local
+*/.env.test.local
+*/.env.production.local
+
+.idea
+.idea/misc.xml
 # AWS User-specific
 .idea/**/aws.xml
 

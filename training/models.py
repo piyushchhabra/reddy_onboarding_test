@@ -28,6 +28,14 @@ class UserActivity(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
+    @property
+    def user_name(self):
+        return self.user.username
+
+    @property
+    def activity_name(self):
+        return self.activity.name
+
     def __str__(self):
         return f"{self.user.username} - {self.activity.name}"
 
@@ -38,6 +46,22 @@ class UserActivityLog(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     started_at = models.DateTimeField(auto_now_add=True)
     ended_at = models.DateTimeField(auto_now=True, null=True)
+
+    @property
+    def user_id(self):
+        return self.user_activity.user.id
+
+    @property
+    def user_name(self):
+        return self.user_activity.user_name
+
+    @property
+    def completed(self):
+        return self.user_activity.completed
+
+    @property
+    def activity_name(self):
+        return self.user_activity.activity_name
 
     def __str__(self):
         return f"{self.user_activity.user.username} - {self.user_activity.activity.name} - {self.score}"
